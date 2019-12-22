@@ -22,10 +22,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+
+    TextView showWind ;
+    TextView showPressure;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        showWind = findViewById(R.id.showWind);
+        showPressure = findViewById(R.id.showPressure);
+
     }
 
     @Override
@@ -81,11 +88,28 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (id == R.id.windSpeed) {
-            item.setChecked(!item.isChecked());
+
+            if(item.isChecked()) {
+                item.setChecked(false);
+                showWind.setVisibility(TextView.INVISIBLE);
+            }
+            else {
+                item.setChecked(true);
+                showWind.setVisibility(TextView.VISIBLE);
+            }
             return false;
         }
+
         if (id == R.id.pressure) {
-            item.setChecked(!item.isChecked());
+
+            if(item.isChecked()) {
+                item.setChecked(false);
+                showPressure.setVisibility(TextView.INVISIBLE);
+            }
+            else {
+                item.setChecked(true);
+                showPressure.setVisibility(TextView.VISIBLE);
+            }
             return false;
         }
         return super.onOptionsItemSelected(item);

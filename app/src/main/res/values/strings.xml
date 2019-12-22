@@ -21,4 +21,7 @@
     <string name="search">search</string>
     <string name="weather_forecast">Weather forecast</string>
     <string name="communicate">Communicate</string>
+    <string name="show_pressure">show_pressure</string>
+    <string name="show_wind_speed">show_wind_speed</string>
+
 </resources>
